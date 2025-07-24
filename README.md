@@ -37,8 +37,8 @@ Make sure you have installed:
 #### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/your-repository.git
-cd your-repository
+git clone https://github.com/pedroStelzer/database-project.git
+cd database-project
 ```
 
 #### 2. Start the PostgreSQL and pgAdmin containers
@@ -61,7 +61,7 @@ pip install -r requirements.txt
 #### 4. Go to app directory
 
 ```bash
-cd .\app\
+cd app
 ```
 
 #### 5. Execute the application

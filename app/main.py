@@ -33,10 +33,10 @@ def execute_multiple_queries(path, cursor):
             except psycopg2.ProgrammingError:
 
                 # Nenhum dado retornado
-                print(f"\n✅ Consulta {i} executada (sem retorno): {querie}")
+                print(f"\n[✓] Consulta {i} executada (sem retorno): {querie}")
 
         except Exception as e:
-            print(f"\n❌ Erro na consulta {i}: {e}")
+            print(f"\n[X] Erro na consulta {i}: {e}")
 
 load_dotenv()
 
@@ -68,12 +68,13 @@ except psycopg2.errors.DuplicateTable: # Exceção para tabela já existente
 # Executar consultas
 execute_multiple_queries('../sql/queries.sql', cur)
 
-# Perguntar se deseja deletar as tabelas
-delete = input("\nDeseja deletar as tabelas? (s/n): ")
-if(delete.lower() == 's'):
-    execute('../sql/delete.sql', cur)
-    con.commit()
-    print("\n[✓] Tabelas deletadas com sucesso.")
+# Perguntar se deseja deletar as tabelas 
+# (retire os comentários desta seção caso queira deletar as tabelas (somente para teste))
+# delete = input("\nDeseja deletar as tabelas? (s/n): ")
+# if(delete.lower() == 's'):
+#     execute('../sql/delete.sql', cur)
+#     con.commit()
+#     print("\n[✓] Tabelas deletadas com sucesso.")
 
 # Finalizar
 cur.close()

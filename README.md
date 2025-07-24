@@ -58,10 +58,16 @@ docker-compose up -d
 pip install -r requirements.txt
 ```
 
-#### 4. Execute the application
+#### 4. Go to app directory
 
 ```bash
-python app/main.py
+cd .\app\
+```
+
+#### 5. Execute the application
+
+```bash
+python main.py
 ```
 
 The script will:
@@ -70,7 +76,6 @@ The script will:
 2. Run `create.sql` to create the tables (if not already created).
 3. Run `insert.sql` to populate the tables.
 4. Execute all SELECT queries in `queries.sql` and print formatted results.
-5. Ask whether you want to delete the tables using `delete.sql`.
 
 ---
 
@@ -127,27 +132,25 @@ After logging in, add a new server manually:
 When running `main.py`, you will see outputs like:
 
 ```
-🔍 Consulta 3:
+ Consulta 2:
 
-SELECT nome, telefone FROM Cliente ORDER BY nome;
+-- 2. Mostrar os nomes e salários dos funcionários que ganham mais de R$ 3.000
+SELECT
+ nome,
+ salario
+FROM Funcionario
+WHERE salario > 3000
+ORDER BY salario DESC
 
-+------------+--------------+
-| nome       | telefone     |
-+============+==============+
-| João       | 81999887766  |
-| Maria      | 81998765432  |
-| Pedro      | 81991234567  |
-+------------+--------------+
-```
-
----
-
-## 🧼 Resetting the Database
-
-After running queries, the script will ask if you'd like to delete all the tables using `delete.sql`. This is helpful during development or testing to reset the database state.
-
-```bash
-Deseja deletar as tabelas? (s/n):
++------------------+-----------+
+| nome             |   salario |
++==================+===========+
+| João Silva       |      6000 |
++------------------+-----------+
+| Larissa Oliveira |      3500 |
++------------------+-----------+
+| Rafael Costa     |      3500 |
++------------------+-----------+
 ```
 
 ---

@@ -68,14 +68,6 @@ except psycopg2.errors.DuplicateTable: # Exceção para tabela já existente
 # Executar consultas
 execute_multiple_queries('../sql/queries.sql', cur)
 
-# Perguntar se deseja deletar as tabelas 
-# (retire os comentários desta seção caso queira deletar as tabelas (somente para teste))
-# delete = input("\nDeseja deletar as tabelas? (s/n): ")
-# if(delete.lower() == 's'):
-#     execute('../sql/delete.sql', cur)
-#     con.commit()
-#     print("\n[✓] Tabelas deletadas com sucesso.")
-
 # Finalizar
 cur.close()
 con.close()
